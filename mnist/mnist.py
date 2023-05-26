@@ -44,7 +44,7 @@ class MnistConvNet(nn.Module):
         pool_stride = (2, 2)
 
         self.conv1 = nn.Conv2d(in_channels=in_channels,
-                               out_channels=16,
+                               out_channels=12,
                                kernel_size=conv_kernel_size,
                                padding=padding,
                                stride=conv_stride)
@@ -60,7 +60,7 @@ class MnistConvNet(nn.Module):
         W_out2 = math.floor((W_out1 - pool_kernel_size[1]) / pool_stride[1] +
                             1)
 
-        self.conv2 = nn.Conv2d(in_channels=16,
+        self.conv2 = nn.Conv2d(in_channels=12,
                                out_channels=32,
                                kernel_size=conv_kernel_size,
                                padding=padding,
@@ -100,7 +100,7 @@ train_dataset = torchvision.datasets.MNIST(
     download=True)
 
 trainloader = torch.utils.data.DataLoader(train_dataset,
-                                          batch_size=24,
+                                          batch_size=50,
                                           shuffle=True,
                                           num_workers=2)
 
